@@ -19,7 +19,6 @@
     
   /*
            
-           
                 navigator.geolocation.getCurrentPosition(
                     (pos) => {
                         
