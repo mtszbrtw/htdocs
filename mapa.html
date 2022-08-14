@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
+      <style>
+      .map {
+        height: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([16.661394,50.434563]),
+          zoom: 10
+        })
+      });
+      
+    
+
+                var vectorSource = new ol.source.Vector();
+                vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([16.661394,50.434563]),10000)));
+                var vectorLayer = new ol.layer.Vector({
+                    source: vectorSource,
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: '#3c03ff',
+                            width: 2,
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(206,230,237,0.3)',
+                        }),
+                    })
+                })
+                this.map.addLayer(vectorLayer);
+    
+
+      
+    </script>
+  </body>
+</html>

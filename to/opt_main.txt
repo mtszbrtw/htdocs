@@ -1,0 +1,168 @@
+
+
+AK
+
+edytuj {
+212 pokazuje raz get pokazujacy dane do edycji 
+
+get porownujacy date ed w ak 580 
+
+get wysylajacy dane do edycji 654
+} -- zoptymalizowane tak ze 1-4x max (unbinduj przy schodzeniu na dol 
+     submit dalem na zewnatrz clicka 
+     click uruchamia sie tylko gdy id_ed_ogl jest undefined zeby nie robilo kilka razypo wykonaniu robie wszyskie id na 0 zeby nie wykonalo sie )
+     -- optymalizacja z usun pozwolila na 1-2x
+     
+  
+  
+  usun {
+  
+  } -- rozkminione perfekcyjnie (prawie wszystko tak samo z wyjatkoem ze przed wykonaniem usuniecia dalem if id!=undefined&&id!=0 ) jest od 1-2x
+     
+     
+  
+  
+  wyslij {
+  
+  871 pokazywanie tresci pokazuje 1 w jakis okolicznosciach 2 
+  
+  ustawic czestotliwosc odswierzania wiadomosci na 1s 
+  
+  974 oswierzanie wiad tak to raz ale jak wejdzie sie w inna to pokazuje 2 (max)
+  
+  
+  } zoptymalizowane 
+  
+  
+  .ogloszenie {
+  
+  }//zoptymalizowane perfekt 
+  
+ 
+  dodaj {
+  
+  nie wykonywac funkcji po dodaniu tylko dodac za pomaca jquery zdecydowalem ze nie
+  
+  }
+  
+  menu wiad {
+  
+  wszystko odbywa sie bez uzucia bazy 
+  usuwanie wiad wielokrotnie nic nie zrobir
+  
+  }
+  
+  
+  po kilkukrotnym pokazaniu wiad 
+  jak sie daje edytuj to pokazuje dane kilka razy z 5 albo tyle ile sie kliklo ale edytuje raz 
+  usun wporzadku robi raz wszystko 
+     
+     
+     
+     
+     
+     
+
+
+
+  po edycji i usunieciu ogl z glownej nie wykonuje funkcji zeby odsw tylko edytue ogl lub je usuwam w js 
+  
+  zrobilem tak tez w profil ogl akt i arvh 
+  
+  teraz zrobic w 
+  
+  auto 
+    -usun {ok}
+    ed {nie robie} dod tez nie 
+    -wybuerz nie robie
+  
+  uzytkowniku postaniowile nic nie zmirnieac najwazniejsze jest menu ogl 
+  
+  dodawanie ogl nie robie 
+  
+
+
+tylko po wyjsciu z ptofilu odswierzyc ogl na glownej wszwdzie w profilu usunac taka mozliwosv
+  usuniete z udun edytuj i dod pon
+  odswierxac ogl tyloo jak zajda zmiany w ogl np. po edycji jakas czy usunieciu czy dodaniu jakas zmienna ustawic na 1 i jak jedt1 to wtedy odswierzam na wyjdciu tak to nie i wukonam ta funkcje chyba na limit 0
+  {zrobione}
+  
+  
+  
+  
+  TESTY
+  
+  NA ZMIANACH 
+  
+  TEST 1 
+  
+  
+  wyslalem 20 wiad do 17 ogloszen troszke sie przycinalo ale nie znacznie 
+  po tym dodalem 19 ogloszen i sie zwiesilo 
+  po chwili sie odwiesilo jak zminimalizowalem 
+  dodalem vez przeladowania jeszcze z 7 i zwiesilo sie porzadnnie 
+  po dluzszej chwili sie odwiesilo 
+  dalej bez przeladowania 
+  zszedlem na sam dol ogloszen 
+  przy 14 wiad wylaczyl sie serwer 
+  
+  {wyglada na to ze dodawanie trzeba heszcze uszczenic}
+  KONIEC
+  
+  TEST 2 
+  
+  
+  zmieniłem imie 13 razy 
+  zszedlem na dol ogl 
+  wyslalem 10 wiad 
+  dodalem 5 ogl 
+  zszedlem da dol 
+  wyslalem 7 wiad 
+  wyskalem 2 wiad w menu i sie zwiesilo porzadnie 
+  
+  
+  {uszczelnic menu wiad}
+  KONIEC 
+  
+  
+  
+  
+  
+  dodalem 5 ogl 
+  przelaczylem na ak dodalem 5
+  usunalem 4 
+  zszedlem na sam dol 
+  edytowalem 3 
+  usunalem 3 ogl (raz jakby nie zniklo a pozniej nie pokazywalo info)
+  poszedlem na gore usunslem 3 
+  zmienilem na ranke usunalem 2 
+  zszedlem na dol napisalem 2 
+  usunalem te 2 konw 
+  zmiebilem na ak 
+  wszedlem na wiad i eyszedlem 
+  dodalem 2 ogl
+  zszedlem na dol wyslalem wiad (wszedlem w menu wiad okazalo sie ze wyslalo 2 wiad o tej samej tresci w dwoch roxnych kknw)
+  usunalem 1 wiad i wyszedlem 
+  zmienilem na ranki napisalem 2 wiad w tym 1 na dole 
+  wszeflem w menu wiad usunalem 1 wyszedlem usunalem 2 ogl
+  wszedlem w profil usunalem auto i dodalem 2 edytowalem 1 
+  wszedlem w ogl usunalem 2 
+  (chcialem edytowac 1 ale sie nie udalo nic sie nie dzialo przy submicie)
+  wyszedlem z edycji do arch dod po 2 ogl
+  zmienilem imie(nie pokazalo ze ok)
+  wyszedlem usunalem 2 ogl
+  dodalem 1 ogl
+  dalem na ak 
+  napisalem na 1 wiad 
+  dopisalem do niej w menu wiad 
+  zszedlem na fol ogl 
+  i klikalem ogl po kokeji od dolu 5 
+  usunolem 2 
+  edytowalem 2 
+  napisalem 2 wiad
+  wszedlem w menu usunolem 2 wiad
+  wszedlem profil ogl edytuj (i dalej nic)
+  usunolem 2 w profilu
+  ofpisalem na wiad w menu
+  dalem na ranke 
+  chcialem dodac ogl i sie ZQIESILO 

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "itsjavi/bootstrap-colorpicker": "^3.4",
+        "guzzlehttp/guzzle": "^7.4",
+        "phpfastcache/phpfastcache": "^8.1"
+    }
+}
