@@ -1,7 +1,7 @@
   $(function() {
     
     function wypisz_miejsce_pracy(miejsce_pracy_z_bazy){
-        
+         
         $.ajax({
          type: "GET",
          url: "../../assets/php/wypiszMiejscePracy.php?miejsce="+miejsce_pracy_z_bazy,
@@ -3296,7 +3296,7 @@ output.innerHTML = slider.value;
    
                 
                 
-    function przeladuj_wyniki_na_mapie(vectorLayerFor)
+    function przeladuj_wyniki_na_mapie()
     {
         
       
@@ -3349,64 +3349,7 @@ console.log(w.id+' distance '+distance+' km');
           
     }
 
-    
-  /*  $(document).on("click",'.jakie_filtr',function(){
-    
-    
-    
-    $(".jakie_"+$(this).attr("filtr")).html("").hide();
-    
-    $pre = $(this).attr('filtr');
-    
-
-         $("#filtr"+$pre+" option").attr("selected",false);
-         
-         
-   alert("dni"+$(".jakie_dni:first").html()+" zmiana"+$(".jakie_zmiana:first").html()+" ak"+$(".jakie_ak:first").html()+" ds"+$(".jakie_dystans:first").html()+"ms "+$(".jakie_miejsca:first").html());
  
-            if($(".jakie_dni:first").html() == "" && $(".jakie_zmiana:first").html() == "" && $(".jakie_ak:first").html() == undefined && $(".jakie_dystans:first").html() == "" && $(".jakie_miejsca:first").html() == ""){
-           
-              $("#jakie_filtry").hide();
-              $("#aktywne_info").hide();
-              }else{
-                  alert("dni"+$(".jakie_dni:first").html()+" zmiana"+$(".jakie_zmiana:first").html()+" ak"+$(".jakie_ak:first").html()+" ds"+$(".jakie_dystans:first").html()+"ms "+$(".jakie_miejsca:first").html());
-              }
-              
-              
-              if($(this).attr("filtr") == "dystans"){
-                  
-                  
-   filtrTrasaCircleCoords = {
-    lat:miejsce_pracy_obj[0].lat,
-    lon:miejsce_pracy_obj[0].lon
-};
-
-filtrTrasaCircleDistance = null;
-filtrTrasaCircleType = "company_location";
-filtrTrasaCircleCity = null;
-
- 
- $("#filtrTrasaDistance").val(0);
-      
-
-      $("#distance_val").html("km");
-                    setTimeout(function(){
-        
-    
-    initMap();
-    },200);
-                  
-              }
-  
-  przeladuj_wyniki_na_mapie(null);
-  
-    zaladuj_aktualne_dane();
-    
-    
-     
-    });
-
-    */
     
     slider.oninput = function() {
   output.innerHTML = this.value;
@@ -3421,7 +3364,7 @@ filtrTrasaCircleDistance = this.value;
                 
       
     vectorLayerFor.getSource().clear();
-       przeladuj_wyniki_na_mapie(vectorLayerFor);
+      // przeladuj_wyniki_na_mapie();
         
       
 
@@ -3510,7 +3453,7 @@ vectorLayer.getSource().clear();
           
           
            vectorLayerFor.getSource().clear();
-             przeladuj_wyniki_na_mapie(vectorLayerFor);
+             //przeladuj_wyniki_na_mapie();
           
           vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat,filtrTrasaCircleCoords.lon]),filtrTrasaCircleDistance*1000)));
                 
@@ -3572,7 +3515,7 @@ vectorLayer.getSource().clear();
                    filtrTrasaCircleCity = null;
                    
                      
-                      vectorLayerFor.getSource().clear(); przeladuj_wyniki_na_mapie(vectorLayerFor);
+                      vectorLayerFor.getSource().clear(); //przeladuj_wyniki_na_mapie();
                    
                     vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat,filtrTrasaCircleCoords.lon]),filtrTrasaCircleDistance*1000)));
                    
@@ -3655,7 +3598,8 @@ view.animate({
          filtrTrasaCircleType = "company_location";
          filtrTrasaCircleCity = null;
                   
-                 vectorLayerFor.getSource().clear(); przeladuj_wyniki_na_mapie(vectorLayerFor) 
+                 vectorLayerFor.getSource().clear(); 
+                 //przeladuj_wyniki_na_mapie() 
                   
                  
                   
