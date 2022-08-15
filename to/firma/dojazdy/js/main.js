@@ -16,7 +16,6 @@
 
     };
     
-    
 
     //filtrowanie dalo by rade zrobic jedna mrtoda a nie kazdy vhange z osobna 
     
