@@ -3213,7 +3213,75 @@ closer.onclick = function () {
   return false;
 };
 
-    
+
+
+                  const markerSourceFor = new ol.source.Vector();
+     
+                
+      const vectorLayerFor = new ol.layer.Vector({
+                    source: markerSourceFor,
+                    style:  new ol.style.Style({
+                        image: new ol.style.Icon({
+                            anchor: [0.6, 30],
+                            anchorXUnits: 'fraction',
+                            anchorYUnits: 'pixels',
+                            src: "../../assets/img/car-placeholder.png",
+                        }),
+                    }),
+                });
+   
+                
+                
+    function przeladuj_wyniki_na_mapie()
+    {
+        
+      
+      var filtr = aktualne_filtry();
+       
+      var ogloszenia;
+   
+         zmien_filtr("dystans");
+      
+       $.get("ogloszenia.php",{
+             "all_ogl_for_map":true,
+             "filtrzmiana":filtr["zmiana"],
+             'filtrdni':filtr["dni"],
+             'filtrmiejsca':filtr["miejsca"],
+             "filtrak":filtr["ak"],
+             "dystans":JSON.stringify(filtr["dystans"])
+         },function(odp){
+             
+                          console.log(odp);
+
+           
+          odp = $.parseJSON(odp);
+
+
+            
+       $.each(odp,function(k,w){
+           
+            
+
+ markerSourceFor.addFeature(new ol.Feature({
+                         geometry: new ol.geom.Point(ol.proj.fromLonLat([w.lat,w.lon])),
+                         type:'ogloszenie',id:w.id,
+                        population: 9999,
+                        rainfall: 9999,
+                    }));
+
+                
+
+var distance = returnDistance(miejsce_pracy_obj[0].lat,miejsce_pracy_obj[0].lon,w.lat,w.lon)
+
+console.log(w.id+' distance '+distance+' km');
+
+            
+       })
+          
+        
+         });
+          
+    }
  
     
     function initMap(){
@@ -3279,75 +3347,7 @@ output.innerHTML = slider.value;
                         }),
                     })
                 })
-                  const markerSourceFor = new ol.source.Vector();
-     
-                
-      const vectorLayerFor = new ol.layer.Vector({
-                    source: markerSourceFor,
-                    style:  new ol.style.Style({
-                        image: new ol.style.Icon({
-                            anchor: [0.6, 30],
-                            anchorXUnits: 'fraction',
-                            anchorYUnits: 'pixels',
-                            src: "../../assets/img/car-placeholder.png",
-                        }),
-                    }),
-                });
-   
-                
-                
-    function przeladuj_wyniki_na_mapie()
-    {
-        
-      
-      var filtr = aktualne_filtry();
-       
-      var ogloszenia;
-   
-         zmien_filtr("dystans");
-      
-       $.get("ogloszenia.php",{
-             "all_ogl_for_map":true,
-             "filtrzmiana":filtr["zmiana"],
-             'filtrdni':filtr["dni"],
-             'filtrmiejsca':filtr["miejsca"],
-             "filtrak":filtr["ak"],
-             "dystans":JSON.stringify(filtr["dystans"])
-         },function(odp){
-             
-             
-             
-                                  console.log(odp);
 
-           
-          odp = $.parseJSON(odp);
-
-
-            
-       $.each(odp,function(k,w){
-           
-            
-
- markerSourceFor.addFeature(new ol.Feature({
-                         geometry: new ol.geom.Point(ol.proj.fromLonLat([w.lat,w.lon])),
-                         type:'ogloszenie',id:w.id,
-                        population: 9999,
-                        rainfall: 9999,
-                    }));
-
-                
-
-var distance = returnDistance(miejsce_pracy_obj[0].lat,miejsce_pracy_obj[0].lon,w.lat,w.lon)
-
-console.log(w.id+' distance '+distance+' km');
-
-            
-       })
-          
-        
-         });
-          
-    }
 
  
     
@@ -3363,8 +3363,8 @@ filtrTrasaCircleDistance = this.value;
                 vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat,filtrTrasaCircleCoords.lon]),filtrTrasaCircleDistance*1000)));
                 
       
-    vectorLayerFor.getSource().clear();
-      // przeladuj_wyniki_na_mapie();
+    //vectorLayerFor.getSource().clear();
+      przeladuj_wyniki_na_mapie();
         
       
 
