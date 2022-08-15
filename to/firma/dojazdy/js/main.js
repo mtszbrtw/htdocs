@@ -262,8 +262,6 @@ var userGeo = userGeo();
 
     };
  var ilosc = ilosc();
- 
- 
 
  var inter = setInterval(function(){
      
