@@ -17,19 +17,6 @@
     };
     
     
-  /*
-           
-           
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        
-                    lat = pos.coords.latitude;
-                    lon = pos.coords.longitude;
-                             
-                    });
-                    
-                    */
-            
 
     //filtrowanie dalo by rade zrobic jedna mrtoda a nie kazdy vhange z osobna 
     
