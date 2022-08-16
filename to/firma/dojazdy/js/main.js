@@ -3231,6 +3231,7 @@
 
       $(".jakie_" + filtrChange).show().html("<img src='../../img/cross.png' class='jakie_obr'/>" + jakiFiltr);
 
+alert(jakiFiltr)
 
 
        $(".jakie_dystans").marquee({
@@ -3339,10 +3340,10 @@ zmien_filtr("dystans");
      $("#filtr-trasa-container").hide();
 
 
-     const vectorSource = new ol.source.Vector();
+     const circleSource = new ol.source.Vector();
 
-     const vectorLayer = new ol.layer.Vector({
-      source: vectorSource,
+     const circleLayer = new ol.layer.Vector({
+      source: circleSource,
       style: new ol.style.Style({
        stroke: new ol.style.Stroke({
         color: '#3c03ff',
@@ -3361,12 +3362,12 @@ zmien_filtr("dystans");
       output.innerHTML = this.value;
 
 
-      vectorLayer.getSource().clear();
+      circleLayer.getSource().clear();
 
       filtrTrasaCircleDistance = this.value;
 
 
-      vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+      circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
 
 
@@ -3431,7 +3432,7 @@ zmien_filtr("dystans");
 
 
        vector2Layer.getSource().clear();
-       vectorLayer.getSource().clear();
+       circleLayer.getSource().clear();
 
 
 
@@ -3450,16 +3451,10 @@ console.log(odp);
         })
 
 
-        filtrTrasaCircleCoords.lat = odp[0].coordinates.lat;
-        filtrTrasaCircleCoords.lon = odp[0].coordinates.lon;
 
-        filtrTrasaCircleType = "city";
-        filtrTrasaCircleCity = value;
+      
 
-
-       // zmien_filtr("dystans");
-
-        vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+        
 
 
 
@@ -3471,7 +3466,16 @@ console.log(odp);
          rainfall: 9999,
         }));
 
+        filtrTrasaCircleCoords.lat = odp[0].coordinates.lat;
+        filtrTrasaCircleCoords.lon = odp[0].coordinates.lon;
 
+        filtrTrasaCircleType = "city";
+        filtrTrasaCircleCity = value;
+
+
+circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+
+zmien_filtr("dystans");
 
 
        });
@@ -3490,7 +3494,7 @@ console.log(odp);
      $("#myLocate").click(function() {
 
       vector2Layer.getSource().clear();
-      vectorLayer.getSource().clear();
+      circleLayer.getSource().clear();
 
       filtr_trasa_miasto[0].selectize.clear();
 
@@ -3519,9 +3523,9 @@ console.log(odp);
         filtrTrasaCircleCity = null;
 
 
- //przeladuj_wyniki_na_mapie();
+zmien_filtr("dystans");
 
-        vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+        circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
 
 
@@ -3585,7 +3589,7 @@ console.log(odp);
       filtr_trasa_miasto[0].selectize.clear();
 
 
-      vectorLayer.getSource().clear();
+      circleLayer.getSource().clear();
 
       vector2Layer.getSource().clear();
 
@@ -3603,11 +3607,11 @@ console.log(odp);
       filtrTrasaCircleCity = null;
 
       
-      //przeladuj_wyniki_na_mapie() 
+      zmien_filtr("dystans");
 
 
 
-      vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+      circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
 
      })
@@ -3637,7 +3641,7 @@ console.log(odp);
 
 
      map.addLayer(vector2Layer);
-     map.addLayer(vectorLayer);
+     map.addLayer(circleLayer);
      map.addLayer(oglLayer);
      map.addLayer(companyLayer);
 
