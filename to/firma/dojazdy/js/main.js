@@ -3457,7 +3457,7 @@ console.log(odp);
         filtrTrasaCircleCity = value;
 
 
-        //przeladuj_wyniki_na_mapie();
+       // zmien_filtr("dystans");
 
         vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
