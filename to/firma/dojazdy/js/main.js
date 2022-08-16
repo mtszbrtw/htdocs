@@ -1,5 +1,5 @@
   $(function() {
-//alert("miejscowosci");
+//alert("master");
    function wypisz_miejsce_pracy(miejsce_pracy_z_bazy) {
 
     $.ajax({
@@ -3231,7 +3231,6 @@
 
       $(".jakie_" + filtrChange).show().html("<img src='../../img/cross.png' class='jakie_obr'/>" + jakiFiltr);
 
-alert(jakiFiltr)
 
 
        $(".jakie_dystans").marquee({
@@ -3340,10 +3339,10 @@ zmien_filtr("dystans");
      $("#filtr-trasa-container").hide();
 
 
-     const circleSource = new ol.source.Vector();
+     const vectorSource = new ol.source.Vector();
 
-     const circleLayer = new ol.layer.Vector({
-      source: circleSource,
+     const vectorLayer = new ol.layer.Vector({
+      source: vectorSource,
       style: new ol.style.Style({
        stroke: new ol.style.Stroke({
         color: '#3c03ff',
@@ -3362,12 +3361,12 @@ zmien_filtr("dystans");
       output.innerHTML = this.value;
 
 
-      circleLayer.getSource().clear();
+      vectorLayer.getSource().clear();
 
       filtrTrasaCircleDistance = this.value;
 
 
-      circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+      vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
 
 
@@ -3432,7 +3431,7 @@ zmien_filtr("dystans");
 
 
        vector2Layer.getSource().clear();
-       circleLayer.getSource().clear();
+       vectorLayer.getSource().clear();
 
 
 
@@ -3451,14 +3450,7 @@ console.log(odp);
         })
 
 
-
-      
-
         
-
-
-
-
         marker2Source.addFeature(new ol.Feature({
          geometry: new ol.geom.Point(ol.proj.fromLonLat([odp[0].coordinates.lat, odp[0].coordinates.lon])),
          type: '3270',
@@ -3466,14 +3458,18 @@ console.log(odp);
          rainfall: 9999,
         }));
 
-        filtrTrasaCircleCoords.lat = odp[0].coordinates.lat;
+
+filtrTrasaCircleCoords.lat = odp[0].coordinates.lat;
         filtrTrasaCircleCoords.lon = odp[0].coordinates.lon;
 
         filtrTrasaCircleType = "city";
         filtrTrasaCircleCity = value;
 
 
-circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+       
+
+        vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+
 
 zmien_filtr("dystans");
 
@@ -3494,7 +3490,7 @@ zmien_filtr("dystans");
      $("#myLocate").click(function() {
 
       vector2Layer.getSource().clear();
-      circleLayer.getSource().clear();
+      vectorLayer.getSource().clear();
 
       filtr_trasa_miasto[0].selectize.clear();
 
@@ -3523,11 +3519,10 @@ zmien_filtr("dystans");
         filtrTrasaCircleCity = null;
 
 
-zmien_filtr("dystans");
 
-        circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+        vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
-
+zmien_filtr("distance");
 
         var distance = returnDistance(miejsce_pracy_obj[0].lat, miejsce_pracy_obj[0].lon, userLon, userLat);
 
@@ -3589,7 +3584,7 @@ zmien_filtr("dystans");
       filtr_trasa_miasto[0].selectize.clear();
 
 
-      circleLayer.getSource().clear();
+      vectorLayer.getSource().clear();
 
       vector2Layer.getSource().clear();
 
@@ -3607,12 +3602,13 @@ zmien_filtr("dystans");
       filtrTrasaCircleCity = null;
 
       
-      zmien_filtr("dystans");
 
 
 
-      circleSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
+      vectorSource.addFeature(new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([filtrTrasaCircleCoords.lat, filtrTrasaCircleCoords.lon]), filtrTrasaCircleDistance * 1000)));
 
+
+zmien_filtr("dystans");
 
      })
 
@@ -3641,7 +3637,7 @@ zmien_filtr("dystans");
 
 
      map.addLayer(vector2Layer);
-     map.addLayer(circleLayer);
+     map.addLayer(vectorLayer);
      map.addLayer(oglLayer);
      map.addLayer(companyLayer);
 
