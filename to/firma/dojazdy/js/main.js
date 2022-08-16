@@ -1,5 +1,5 @@
   $(function() {
-
+alert("miejscowosci");
    function wypisz_miejsce_pracy(miejsce_pracy_z_bazy) {
 
     $.ajax({
