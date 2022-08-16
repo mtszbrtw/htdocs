@@ -339,7 +339,7 @@ function lock_enter()
                      <div class="row">
                          
 
-                       <input id="filtrTrasaDistance" class="slider col-10" type="range" min="0" max="90" value="0" step="15" style="width:80%;float:left" list="tickmarks">
+                       <input id="filtrTrasaDistance" class="slider col-10" type="range" min="0" max="90" value="0" step="15" list="tickmarks">
                        <datalist id="tickmarks">
                            <option value="0" label="0 km"></option>
                            <option valie="15"></option>
