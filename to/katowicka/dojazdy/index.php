@@ -1078,7 +1078,7 @@ czy jezdzi powoli i bezpieczne czy ak debil-->
 </html>
 <?php
 }else{
-    
-   header("location:../../index.php");
+    echo "nlog";
+//    header("location:../../index.php");
 }
 ?>

@@ -4,8 +4,8 @@ session_start();
  
  require_once('con.php');
  
- $login = filtruj($con,$_GET['login_log']);
- $haslo = md5(filtruj($con,$_GET['pass_log']));
+ $login = filtruj($con,$_POST['login_log']);
+ $haslo = md5(filtruj($con,$_POST['pass_log']));
  
  
  
@@ -31,7 +31,7 @@ if(strpos($login,"@") != false AND strpos($login,".") != false ){
 }
 
     
-    $_SESSION['nick']= $login;
+    $_SESSION['nick']='ninin';
     
     
     echo "zalogowano";

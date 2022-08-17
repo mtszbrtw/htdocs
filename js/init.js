@@ -308,9 +308,9 @@ $(function() {
         };
         
 
-       $.get('logowanie.php',dane_log).done(function(oserv){
+       $.post('logowanie.php',dane_log).done(function(oserv){
            
-
+alert(oserv)
            
            if(oserv == "zalogowano"){
               location.replace("to/index.php");

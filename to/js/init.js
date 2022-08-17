@@ -299,32 +299,33 @@ $(function() {
     
     $("#form_log").submit(function(){
         
-        var login_log = $('#login_log').val();
-        var pass_log = $('#pass_log').val();
+    //     var login_log = $('#login_log').val();
+    //     var pass_log = $('#pass_log').val();
         
-        var dane_log= {
-            'login_log':login_log,
-            'pass_log':pass_log
-        };
+    //     var dane_log= {
+    //         'login_log':login_log,
+    //         'pass_log':pass_log
+    //     };
         
 
-       $.post('logowanie.php',dane_log).done(function(oserv){
-           
-           if(oserv == "zalogowano"){
-              location.replace("/do/index.php");
+    //    $.post('logowanie.php',dane_log).done(function(oserv){
+    //        alert(oserv);
+    //        if(oserv == "zalogowano"){
+    //         alert("zalogowano");
+    //          // document.location.replace("/to/index.php");
               
-              $('#login_log').val("");
-              $('#pass_log').val("");
+    //           $('#login_log').val("");
+    //           $('#pass_log').val("");
               
-           }else{
+    //        }else{
                
-               $('#log_error').show().html(oserv);
-           };
+    //            $('#log_error').show().html(oserv);
+    //        };
            
     
-       }).fail(function(){
-            $('#log_error').show().html('błąd połączenia z serwerem');
-       });
+    //    }).fail(function(){
+    //         $('#log_error').show().html('błąd połączenia z serwerem');
+    //    });
       return false;
     });
     

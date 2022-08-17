@@ -60,8 +60,8 @@ if(isset($_SESSION["nick"])){
   
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<script src="script.js"></script>
-	  <script src="js/init.js?status=76543h"></script>
+	
+	  <script src="js/init.js"></script>
 	   <link rel="stylesheet" href="css/templatemo-style.css?status=w8765">
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
