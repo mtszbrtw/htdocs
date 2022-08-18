@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset($_SESSION['nick'])){
     
     
@@ -136,8 +137,7 @@ if(isset($_SESSION['nick'])){
 
 <?php
 }else{
-    
- 
+   
     header('location: ../index.php');
 }
 ?>
